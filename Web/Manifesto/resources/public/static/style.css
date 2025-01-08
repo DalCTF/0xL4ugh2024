@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  padding: 7rem 4rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+}
+
+body.dark {
+  --hue: rgb(6, 158, 26);
+  background-color: black;
+}
+
+body.light {
+  --hue: rgb(156, 21, 134);
+  background-color: wheat;
+}
+
+body.dark .delims,
+body.dark a,
+body.dark {
+  color: white;
+}
+
+body.light .delims,
+body.light a,
+body.light {
+  color: black;
+}
+
+a {
+  display: block;
+  height: 1rem;
+}
+
+pre {
+  font-size: 1rem;
+}
+
+pre span {
+  color: gray;
+}
+
+main {
+  max-width: 48rem;
+  height: 100%;
+
+  margin: 0 auto;
+  padding: 2rem 4rem;
+
+  box-shadow: hsl(from var(--hue) h s l / 50%) 0 0 25px 0px;
+  border: 1px solid var(--hue);
+
+  color: hsl(from var(--hue) h calc(s - 40) calc(l + 15));
+}
+
+ul {
+  text-align: justify;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+li strong {
+  background-color: yellow;
+}
+
+.delims {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.delims::before {
+  content: "--- ";
+}
+
+.delims::after {
+  content: " ---";
+}
+
+main .delims:first-child {
+  margin-bottom: 2rem;
+}
+
+main .delims:last-child {
+  margin-top: 2rem;
+}
+
+.notice {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1rem;
+  padding: 8px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+h1:has(+ form) {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+
+form label {
+  text-align: right;
+}
+
+form input[type="submit"] {
+  width: fit-content;
+  margin-left: auto;
+  padding: 0.25rem 2rem;
+  grid-column-start: 2;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 2rem;
+}

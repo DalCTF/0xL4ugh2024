@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<p class="delims">the clojure manifesto</p>
+
+<ol>
+  <pre>
+    (+ 1 2 3)
+    <span>;; => 6</span>
+
+    (first [4 2 1])
+    <span>;; => 4</span>
+
+    (rest [1 2 3])
+    <span>;; => [2 3]</span>
+
+    (filter even? (range 5))
+    <span>;; => (0 2 4)</span>
+
+    (let [m {:a 1 :b 2}]
+      (+ (:a m) (:b m)))
+    <span>;; => 3</span>
+  </pre>
+  <hr/>
+
+  <li>
+    Clojure's concise and expressive syntax reduces boilerplate while
+    preserving clarity, leading to fewer defects and quicker development.
+  </li>
+  <li>
+    The JVM foundation grants access to a mature ecosystem of libraries,
+    bridging functional paradigms with enterprise reliability.
+  </li>
+  <li>
+    Immutable data structures make concurrent applications simpler to
+    write and safer in production.
+  </li>
+  <li>
+    Macros allow for domain-specific abstractions, promoting cleaner, more
+    maintainable architectures at scale.
+  </li>
+  <li>
+    A “code as data” philosophy (homoiconicity) enables powerful
+    metaprogramming without resorting to ad-hoc solutions.
+  </li>
+  <li>
+    Built-in concurrency primitives minimize synchronization overhead,
+    improving both performance and developer productivity.
+  </li>
+  <li>
+    Functional design naturally encourages modular systems that are easier
+    to test and modify over time.
+  </li>
+  <li>
+    The REPL-driven workflow provides immediate feedback, increasing
+    development velocity and software quality.
+  </li>
+  <li>Oh, didn't I tell you? It's also <strong>super secure</strong></li>
+</ul>
+
+<p class="delims">end of manifesto</p>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    let queryString = new URL(location.href).search
+
+    if (queryString) location = new URLSearchParams(queryString).get('redirect') || '/'
+  </script>
+{% endblock %}

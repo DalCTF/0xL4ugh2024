@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXBhcmVudGhlc2VzIj48cGF0aCBkPSJNOCAyMXMtNC0zLTQtOSA0LTkgNC05Ii8+PHBhdGggZD0iTTE2IDNzNCAzIDQgOS00IDktNCA5Ii8+PC9zdmc+"
+    />
+    <title>The Clojure Manifesto</title>
+    {% block scripts %}{% endblock %}
+  </head>
+  <body class="{{ prefer }}">
+    <main>{% block main %}{% endblock %}</main>
+    <div class="notice">
+      {% if username %}
+      <p>Hey, {{ username }}!</p>
+      {% endif %}
+      <a href="/">Home</a>
+      {% if username %}
+      <a href="/logout">Logout</a>
+      {% else %}
+      <a href="/login">Login</a>
+      {% endif %}
+      <a href="/gists">Gists</a>
+      <a
+        href='/?prefer={% if prefer = "light" %}dark{% else %}light{% endif %}&redirect={{ url }}'
+      >
+        {% if prefer = "light" %}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <g
+            fill="none"
+            stroke="#333"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+            />
+          </g>
+        </svg>
+        {% else %}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="none"
+            stroke="#555"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9"
+          />
+        </svg>
+        {% endif %}</a
+      >
+    </div>
+  </body>
+</html>

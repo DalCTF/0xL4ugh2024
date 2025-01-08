@@ -1,0 +1,18 @@
+{% extends "layout.html" %} {% block main %}
+<p class="delims">clojure memes</p>
+<img src="https://imgs.xkcd.com/comics/lisp_cycles.png" alt="" />
+<p class="delims">gists</p>
+<div class="gists">
+  {% for gist in gists %}
+  <p>{{gist}}</p>
+
+  {% endfor %}
+</div>
+<hr style="margin: 1.5rem 0" />
+<form method="POST" action="/gists">
+  <label for="gist">Gist:</label>
+  <textarea name="gist"></textarea>
+  <input type="submit" value="Submit gist" />
+</form>
+<p class="delims">end of section</p>
+{% endblock %}
